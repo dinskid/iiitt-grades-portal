@@ -109,19 +109,9 @@ def fetch_supplementary(rollno):
     current_user.supplementary_results = json.dumps(supplementary_results)
     return supplementary_results
 
-#  init_db_command()
-#  try:
-#  init_db_command()
-#  except:
-#  print('Error')
-#  # Assume it's already been created
-#  pass
-
 # Configuration
 GOOGLE_CLIENT_ID = os.environ.get("GOOGLE_CLIENT_ID")
 GOOGLE_CLIENT_SECRET = os.environ.get("GOOGLE_CLIENT_SECRET", None)
-print(GOOGLE_CLIENT_ID)
-print(GOOGLE_CLIENT_SECRET)
 GOOGLE_DISCOVERY_URL = (
     "https://accounts.google.com/.well-known/openid-configuration"
 )
@@ -139,7 +129,7 @@ login_manager.init_app(app)
 try:
     init_db_command()
 except sqlite3.OperationalError:
-    print('Error')
+    pass
 
 # OAuth 2 client setup
 client = WebApplicationClient(GOOGLE_CLIENT_ID)
