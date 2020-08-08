@@ -194,7 +194,7 @@ def callback():
     email2roll = open('./email_roll.csv').readlines()
     for item in email2roll:
         em, rno = item.split(',')
-        if em == email:
+        if em.strip() == email:
             rollno = rno.strip().upper()
             break
 
